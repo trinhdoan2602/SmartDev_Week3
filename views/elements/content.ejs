@@ -247,13 +247,14 @@
                     <button class="explore">Explore Python</button>
                 </div>
                 <div class="course-main-slider responsive ">
-                    <a href="#" class="slider">
-                        <!-- <img src="./assets/images/course-python-1.jpg" alt="">
-                        <h3>2022 Complete Python Bootcamp From Zero to Hero in Python</h3>
-                        <h4>Jose Portilla</h4>
-                        <h6>A$19.99</h6> -->
+                    <% course.forEach(function(course) { %>
+                    <a id="<%= course.id %>" href="#" class="slider">
+                        <img src="<%= course.img %>" alt="">
+                        <h3><%= course.sliderH3 %></h3>
+                        <h4><%= course.sliderH4 %></h4>
+                        <h6>A$<%= course.sliderH6 %></h6>
                     </a>
-
+                   <% }); %>
                 </div>
             </div>
             <div class="course-main " id="excel">
@@ -269,8 +270,14 @@
                     <button class="explore">Explore Execl</button>
                 </div>
                 <div class="course-main-slider responsive ">
-
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="web">
@@ -283,7 +290,14 @@
                     <button class="explore">Explore Web Development</button>
                 </div>
                 <div class="course-main-slider responsive">
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="javascript">
@@ -297,7 +311,14 @@
                     <button class="explore">Explore Javascript</button>
                 </div>
                 <div class="course-main-slider responsive">
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="data">
@@ -311,7 +332,14 @@
                     <button class="explore">Explore Data Science</button>
                 </div>
                 <div class="course-main-slider responsive">
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="aws">
@@ -324,7 +352,14 @@
                     <button class="explore">Explore AWS Certification</button>
                 </div>
                 <div class="course-main-slider responsive">
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="drawing">
@@ -337,7 +372,14 @@
                     <button class="explore">Explore Drawing</button>
                 </div>
                 <div class="course-main-slider responsive">
-
+                    <% course.forEach(function(course) { %>
+                        <a id="<%= course.id %>" href="#" class="slider">
+                            <img src="<%= course.img %>" alt="">
+                            <h3><%= course.sliderH3 %></h3>
+                            <h4><%= course.sliderH4 %></h4>
+                            <h6>A$<%= course.sliderH6 %></h6>
+                        </a>
+                       <% }); %>
                 </div>
             </div>
             <div class="course-main " id="coursescart">
@@ -364,23 +406,22 @@
     </div>
     <div class="container">
         <div class="row responsive1">
-            <!-- <div class="slide-skill">
+            <% skill.forEach(function(skill) { %>
+            <div class="slide-skill">
             <div class="top">
-                <img src="./assets/images/skill1.jpg" alt="">
-                <h6>Martin Therkelsen</h6>
-                <span>@Mracket</span>
+                <img src="<%= skill.img %>" alt="">
+                <h6><%= skill.name %></h6>
+                <span><%= skill.twitter %></span>
             </div>
             <div class="mid">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus modi iste unde esse veritatis
-                    impedit dolore aliquid omnis, asperiores est veniam sint magnam mollitia! Id voluptatem
-                    reprehenderit facilis facere! Omnis.</p>
+                <p><%= skill.comment %></p>
             </div>
             <div class="bottom">
                 <i class='bx bx-message-rounded'></i>
                 <i class='bx bx-heart'></i>
             </div>
-        </div> -->
-
+        </div>
+        <% }); %>
         </div>
     </div>
 </section>

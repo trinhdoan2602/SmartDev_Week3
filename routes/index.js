@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home Page' });
+  var coursers = db.get('courses')
+  var skills = db.get('skills')
+  res.render('index', { 
+    course: coursers.value(),
+    skill: skills.value()
+   });
+
 });
 
 router.get('/login', function(req, res, next) {
