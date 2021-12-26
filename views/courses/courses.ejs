@@ -43,7 +43,7 @@
                 <div class="course-main-slider responsive ">
 
                     <% courses.forEach(function(courses) { %>
-                        <a id="<%= courses.id %>" href="#" class="slider">
+                        <a id="<%= courses.id %>" href="/courses/<%= courses.slug %>" class="slider">
                             <img src="<%= courses.image %>" alt="">
                             <h3><%= courses.name %></h3>
                             <h4><%= courses.author %></h4>

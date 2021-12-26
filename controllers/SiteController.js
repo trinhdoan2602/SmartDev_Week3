@@ -1,4 +1,5 @@
-const Course = require('../models/Course')
+const Course = require('../models/Course');
+const { mutipleMongooseToObject } = require('../utilities/mongoose');
 
 class SiteController {
     // [GET] /
@@ -13,9 +14,11 @@ class SiteController {
         // });
 
         Course.find({})
-            .then(courses => res.render('courses-view', {
-                courses
-            }))
+            .then(courses => {
+                res.render('courses-view', {
+                    courses: mutipleMongooseToObject(courses)
+                });
+            })
             .catch(next)
         
 

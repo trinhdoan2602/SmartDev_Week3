@@ -20,4 +20,5 @@ router.get('/courses-view', function(req, res, next) {
   res.render('courses-view', { title: 'courses-view' });
 });
 
+
 module.exports = router;
