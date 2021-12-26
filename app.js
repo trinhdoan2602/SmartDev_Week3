@@ -4,6 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan'); 
 
+//mongoDB
+// var MongoClient = require("mongodb").MongoClient
+// MongoClient.connect("mongodb://localhost:27017", (err, client) => {
+//   if (err) {
+//     return console.log(err);
+//   }
+//   console.log("Đã kết nối database");
+// })
+
+const database = require('./database/seed');
+// Connect to DB
+database.connect();
+
 // lowdb
 var low = require('lowdb');
 var FileSync = require('lowdb/adapters/FileSync');
@@ -15,6 +28,8 @@ db.defaults({ coursers: []})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var coursesRouter = require('./routes/courses');
+
 
 var app = express();
 
@@ -31,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/courses', coursesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
