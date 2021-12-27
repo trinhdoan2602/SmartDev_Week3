@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include ../elements/header %>
+</head>
+
+<body>
+    <div class="container">
+        <h2>My Courses</h2>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Thời gian tạo</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% courses.forEach(function(courses, index) { %>
+                <tr>
+                    <th scope="row"><%= index+1 %></th>
+                    <td><%= courses.name %></td>
+                    <td><%= courses.author %></td>
+                    <td><%= courses.createdAt %></td>
+                    <td>
+                        <a href="/courses/<%= courses._id %>/edit" class="btn btn-link">Update</a>
+                        <a href="" class="btn btn-link">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

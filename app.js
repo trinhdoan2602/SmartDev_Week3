@@ -3,16 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan'); 
+var methodOverride = require('method-override')
 
 //mongoDB
-// var MongoClient = require("mongodb").MongoClient
-// MongoClient.connect("mongodb://localhost:27017", (err, client) => {
-//   if (err) {
-//     return console.log(err);
-//   }
-//   console.log("Đã kết nối database");
-// })
-
 const database = require('./database/seed');
 // Connect to DB
 database.connect();
@@ -28,6 +21,7 @@ db.defaults({ coursers: []})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var meRouter = require('./routes/me');
 var coursesRouter = require('./routes/courses');
 
 
@@ -43,9 +37,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/me', meRouter);
 app.use('/courses', coursesRouter);
 
 // catch 404 and forward to error handler

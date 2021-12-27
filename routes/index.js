@@ -21,4 +21,8 @@ router.get('/courses-view', function(req, res, next) {
 });
 
 
+// router.get('stored/courses', function(req, res, next) {
+//   res.render('stored-courses', { title: 'stored-courses' });
+// });
+
 module.exports = router;
