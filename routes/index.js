@@ -16,6 +16,14 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login Page' });
 });
 
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Register Page' });
+});
+
+router.get('/password', function(req, res, next) {
+  res.render('password', { title: 'Password Page' });
+});
+
 router.get('/courses-view', function(req, res, next) {
   res.render('courses-view', { title: 'courses-view' });
 });

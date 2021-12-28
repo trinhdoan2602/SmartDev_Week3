@@ -4,13 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan'); 
 var methodOverride = require('method-override')
+var bodyParser = require('body-parser')
 
 //mongoDB
 const database = require('./database/seed');
 // Connect to DB
 database.connect();
 
-// lowdb
+// lowdb  
 var low = require('lowdb');
 var FileSync = require('lowdb/adapters/FileSync');
 var adapter = new FileSync('db.json')
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+app.use(bodyParser.json())
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
