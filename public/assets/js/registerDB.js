@@ -19,7 +19,7 @@ async function registerUser(event) {
     
     if(result.status === 'ok'){
         alert('Success')
-        // window.location.href = "/login"
+        window.location.href = "/login"
     } else {
         alert(result.error)
     }

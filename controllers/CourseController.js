@@ -26,7 +26,7 @@ class CourseController {
         formData.image = `http://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`
         const course = new Course(req.body)
         course.save()
-            .then(() => res.redirect('/courses'))
+            .then(() => res.redirect('/me/stored/courses'))
             .catch(error => {
                 
             })

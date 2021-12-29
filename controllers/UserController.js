@@ -9,7 +9,7 @@ const JWT_SECRET = 'hfoiuvanrbfipsnmjoguhgiua87256345yY&^&%&87fhnonsofghnjfidhng
 class UserController {
     // [POST] /users/api/password
     async password(req, res) {
-        const { token, newpassword: plainTextPassword  } = req.body
+        const { token, newpassword: plainTextPassword } = req.body
 
         if (!plainTextPassword || typeof plainTextPassword !== 'string') {
             return res.json({ status: 'error', error: 'Invalid password' })
@@ -30,7 +30,7 @@ class UserController {
                 }
             )
             res.json({ status: 'ok' })
-        } catch(error) {
+        } catch (error) {
             console.log(error)
             res.json({ status: 'error', error: ';))' })
         }
@@ -43,22 +43,22 @@ class UserController {
         const { username, password } = req.body
         const user = await User.findOne({ username }).lean()
 
-        if(!user) {
+        if (!user) {
             return res.json({ status: 'error', error: 'Invalid username/password' })
         }
 
-        if(await bcrypt.compare(password, user.password)) {
+        if (await bcrypt.compare(password, user.password)) {
 
-            const token = jwt.sign({ 
+            const token = jwt.sign({
                 id: user._id,
                 username: user.username
-                }, JWT_SECRET
+            }, JWT_SECRET
             )
+
             return res.json({ status: 'ok', data: token })
         }
 
-        res.json({ status: 'ok', data: 'Invalid username/password' })
-
+        res.json({ status: 'error', data: 'Invalid username/password' })
     }
     async register(req, res) {
         // console.log(req.body);
